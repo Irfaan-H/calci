@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>CALCULATOR</title>
+    <style>
+        body{
+            background:grey;
+            height: 100vh;
+            width: 100vh;
+        }
+        .page{
+            height:5+0px;
+            width:250px;
+            margin:auto;
+            height:auto;
+           
+            padding:20px;
+            text-align:center;
+            border-radius: 10%;
+            
+            
+        }
+            
+        .button{
+            height: 35px;
+            width: 35px;
+            background-color:#9696969;
+           
+            border: none;
+            border-radius: 50%;
+            margin:5px;
+            font-size: 14px;
+        }
+        
+        
+    </style>  
+</head>
+<body>
+    <div class="page">
+        {% block content%}
+        <form  action="calculator"name="calc" method="POST">
+            {% csrf_token %} 
+ 
+
+             CALCULATOR
+             <br></br>
+            <input type="text" name="calci" style="text-align:right;"  value="{{result}}">
+            <br></br>
+
+             <div class="class">
+                <input class="button" type="button" value="9" onclick="calc.calci.value+='9'">
+                <input class="button" type="button"value="8" onclick="calc.calci.value+='8'">
+                <input class="button" type="button"value="7" onclick="calc.calci.value+='7'">
+                <input class="button" type="button"value="+" onclick="calc.calci.value+=' + '">
+                <br></br>
+                <input class="button" type="button"value="6" onclick="calc.calci.value+='6'">
+                <input class="button" type="button"value="5" onclick="calc.calci.value+='5'">
+                <input class="button" type="button"value="4" onclick="calc.calci.value+='4'">
+                <input class="button" type="button"value="-" onclick="calc.calci.value+=' - '">
+                <br></br>
+                <input class="button" type="button"value="3" onclick="calc.calci.value+='3'">
+                <input class="button" type="button"value="2" onclick="calc.calci.value+='2'">
+                <input class="button" type="button"value="1" onclick="calc.calci.value+='1'">
+                <input class="button" type="button"value="*" onclick="calc.calci.value+=' * '">
+                <br></br>
+                <input class="button" type="button"value="0" onclick="calc.calci.value+='0'">
+                <input class="button" type="button" value="/" onclick="calc.calci.value+=' / '">
+                <br></br>
+                <button class="button" name="enter" style="padding:10px; border-radius: 10%;width:50px;background-color:#9696969">=</button>
+               
+
+                <br></br>
+             </div>
+        </form>
+
+        <form  action="reset" method="POST">
+            {% csrf_token%}
+            <button  type="onclick"  style="padding:10px;" value="result">AC</button>
+        </form>
+        {% endblock%}
+    </div>
+</body>
+</html>
+

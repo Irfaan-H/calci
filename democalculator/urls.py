@@ -1,0 +1,9 @@
+from django.urls import path
+from .import views
+from django.http import HttpResponseRedirect
+
+urlpatterns = [
+    path('',views.index,name='index'),
+    path('reset',views.reset,name='reset'),
+    path('calculator',views.calculator,name='calculator'),
+]
